@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/weatherback"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:background="@drawable/whitebackground"
+            android:padding="30px"
+            android:id="@+id/locationEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter location"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:inputType="text" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/getWeatherButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:src="@drawable/weathericon"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+    <!-- Wrap the TextViews in a CardView for elevation -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailsCardView"
+        android:layout_marginTop="16dp"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        android:background="@drawable/whitebackground"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10px"
+            android:orientation="vertical">
+
+            <!-- cityNameTextView -->
+            <TextView
+                android:id="@+id/cityNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:drawableLeft="@drawable/stars"
+                android:drawablePadding="15dp"
+                android:padding="30px"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <!-- weatherTextView -->
+            <TextView
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:id="@+id/weatherTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:drawableLeft="@drawable/info"
+                android:drawablePadding="15dp"
+                android:padding="30px"
+                android:visibility="invisible"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/commonCityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Some Common Cities!"
+        android:drawableLeft="@drawable/city"
+        android:drawablePadding="15dp"
+        android:background="@drawable/whitebackground"
+        android:padding="30px"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cityRecyclerView"
+        android:background="@drawable/whitebackground"
+        android:padding="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp" />
+
+</LinearLayout>
